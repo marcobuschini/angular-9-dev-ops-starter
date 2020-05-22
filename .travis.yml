@@ -25,5 +25,6 @@ script:
   - npm run test:ci
 
 after_script:
+  - mv tests/coverage/lcov.info coverage/lcov.info
   - ./cc-test-reporter after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
-  - npx coveralls <./tests/coverage/lcov.info
+  - npx coveralls <./coverage/lcov.info
